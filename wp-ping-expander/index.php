@@ -2,18 +2,15 @@
 /*
 Plugin Name: WP Ping Expander
 Plugin URI: https://github.com/dsktschy/wp-ping-expander
-Description: WP Ping Expander extends the ping function built in WordPress and sends pings also when saving the pages and trashing posts and pages.
+Description: WP Ping Expander extends the ping function built in WordPress and sends pings also when post status transitions.
 Version: 1.0.0
 Author: dsktschy
 Author URI: https://github.com/dsktschy
 License: GPL2
 */
 
-// Send pings also when saving pages
-add_filter('publish_page', ['WpPingExpander', 'doPings']);
-
-// Send pings also when trashing posts and pages
-add_action('wp_trash_post', ['WpPingExpander', 'doPings']);
+// Send pings also when post status transitions
+add_filter('transition_post_status', ['WpPingExpander', 'doPings']);
 
 // Class as a namespace
 class WpPingExpander {
