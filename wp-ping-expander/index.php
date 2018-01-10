@@ -12,6 +12,9 @@ License: GPL2
 // Send pings also when post status transitions
 add_filter('transition_post_status', ['WpPingExpander', 'doPings']);
 
+// Hook for sending ping
+add_action('wpe_do_pings', ['WpPingExpander', 'doPings']);
+
 // Class as a namespace
 class WpPingExpander {
   // Send pings
